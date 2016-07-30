@@ -1,0 +1,41 @@
+--------------------------------------------------------------------------------------------------------
+DESCRIPTION
+        $script - A tool that mines IP workarea for IP Report Card status update.
+
+        Default output filename: "<ip>_report.xml"
+
+USAGE
+        $script [option]
+
+OPTION
+        Required:
+        -dir [workarea path]		full path of your workarea(default: pwd)
+        -libtop [libtop file]		library/top list file(default: -make libtop)
+        -xml [xml file]				workdir schema in xml file format(default: -make xml)
+
+        Optional:
+		-fmt [group|ip]				generate single xml report for all IPs
+		-make [libtop|xml]			generate the default/sample/embedded libtop or xml file
+		-debug [code ID]			access internal variables with predefined code ID
+		-o [file name]				desired output file name
+        -h|help						display help message
+
+EXAMPLES
+		1. %> $script
+				-use the default IP workarea xml schema and defined libtop file
+		2. %> $script -fmt group
+                -same as above but group all IPs into 1 xml file
+		3. %> $script -dir /lsc/projects/IP/ip_umc40lp/rrita/workarea -fmt group 
+                -same as above but will check data in the directory provided
+		4. %> $script -xml workdir.xml -libtop libtop.txt
+                -This generates report based on the input xml and libtop file. Use pwd for checking data
+		5. %> $script -make xml
+                -This creates a sample input xml file
+
+SCOPE AND LIMITATIONS
+        1. Supports any workarea by providing info into a highly configurable xml input file.
+
+REVISION HISTORY:
+		1. 05/04/15[rrita] -initial version
+
+--------------------------------------------------------------------------------------------------------
